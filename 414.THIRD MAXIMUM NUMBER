@@ -1,0 +1,20 @@
+class Solution {     function thirdMax($nums) { 
+        $distinct = []; 
+        $max = [PHP_INT_MIN, PHP_INT_MIN, PHP_INT_MIN]; 
+        foreach ($nums as $n) {             if (isset($distinct[$n])) {                 continue; 
+            } 
+            if ($n > $max[0]) { 
+                $max[2] = $max[1]; 
+                $max[1] = $max[0]; 
+                $max[0] = $n; 
+            } elseif ($n > $max[1]) { 
+                $max[2] = $max[1]; 
+                $max[1] = $n; 
+            } elseif ($n > $max[2]) { 
+                $max[2] = $n; 
+            } 
+            $distinct[$n] = $n; 
+        } 
+        return ($max[2] > PHP_INT_MIN) ? $max[2] : $max[0]; 
+    } 
+} 
