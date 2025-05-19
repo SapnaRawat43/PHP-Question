@@ -1,0 +1,9 @@
+class Solution { 
+    /** 
+*	@param Integer[] $nums 
+*	@return Boolean 
+     */ 
+    function containsDuplicate($nums) {         $flipped =array_flip($nums);         if(count($flipped)<count($nums)) 
+            return true;       return false; 
+    } 
+} 
